@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Screenshot App</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <h2>📸 SnapShot Pro</h2>
+        <a href="/logout">Logout</a>
+    </nav>
+
+    <div class="container">
+
+        <div class="capture-box">
+            <h1>Capture Any Website Instantly</h1>
+
+            <form method="POST">
+                <input type="text" name="url" placeholder="https://example.com" required>
+                <button type="submit">Capture</button>
+            </form>
+        </div>
+
+        <h2 class="section-title">Your Screenshots</h2>
+
+        <div class="grid">
+            {% for row in data %}
+            <div class="card">
+                <div class="img-box">
+                    <img src="{{ row[3] }}" onclick="openLightbox('{{ row[3] }}')">
+                    <div class="overlay">
+                        <a href="/download/{{ row[3] }}">⬇</a>
+                        <a href="/delete/{{ row[0] }}">🗑</a>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <p>{{ row[2] }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-btn" onclick="event.stopPropagation(); closeLightbox()">&times;</span>
+        <img id="lightbox-img" onclick="event.stopPropagation()">
+    </div>
+
+    <!-- SCRIPT (move to bottom) -->
+    <script>
+        function openLightbox(src) {
+            const box = document.getElementById("lightbox");
+            const img = document.getElementById("lightbox-img");
+
+            img.src = src;
+            box.style.display = "flex";
+        }
+
+        function closeLightbox() {
+            document.getElementById("lightbox").style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,175 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI';
+    background: #0f0f1a;
+    color: white;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background: #111;
+    border-bottom: 1px solid #222;
+}
+
+.navbar a {
+    color: #ff4d4d;
+    text-decoration: none;
+}
+
+/* Container */
+.container {
+    padding: 30px;
+    text-align: center;
+}
+
+/* Capture Box */
+.capture-box {
+    background: #1a1a2e;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.capture-box input {
+    padding: 12px;
+    width: 300px;
+    border: none;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+.capture-box button {
+    padding: 12px 20px;
+    background: linear-gradient(45deg, #6c63ff, #8b5cf6);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.capture-box button:hover {
+    transform: scale(1.05);
+}
+
+/* Section */
+.section-title {
+    margin-bottom: 20px;
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Card */
+.card {
+    background: #1c1c2b;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Image */
+.img-box {
+    position: relative;
+}
+
+.img-box img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* Overlay buttons */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.img-box:hover .overlay {
+    opacity: 1;
+}
+
+.overlay a {
+    background: white;
+    color: black;
+    padding: 10px;
+    border-radius: 50%;
+    text-decoration: none;
+}
+
+/* Card body */
+.card-body {
+    padding: 10px;
+    font-size: 14px;
+}
+.login-box, .register-box {
+    background: #1a1a2e;
+    padding: 30px;
+    border-radius: 12px;
+    width: 300px;
+    margin: 50px auto;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+/* Lightbox Improved */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+    animation: zoomIn 0.3s ease;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes zoomIn {
+    from {transform: scale(0.8);}
+    to {transform: scale(1);}
+}
